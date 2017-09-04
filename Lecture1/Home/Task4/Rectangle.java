@@ -23,8 +23,16 @@ public class Rectangle {
 
     public Rectangle(double height, double width) {
 
+        checkSize(width);
+        checkSize(height);
         this.height = height;
         this.width = width;
+    }
+
+    private void checkSize(double width) {
+        if (width <= 0){
+            throw new IllegalArgumentException("not positive size");
+        }
     }
 
     public double square() {
@@ -33,5 +41,13 @@ public class Rectangle {
 
     public double perimeter() {
         return 2 * (height + width);
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "height=" + height +
+                ", width=" + width +
+                '}';
     }
 }

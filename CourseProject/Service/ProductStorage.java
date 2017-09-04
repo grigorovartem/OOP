@@ -1,6 +1,7 @@
 package CourseProject.Service;
 
 import CourseProject.Entity.SparePart;
+import CourseProject.Filtration.Filterable;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -17,12 +18,6 @@ public class ProductStorage {
             productStorage = new ProductStorage();
         }
         return productStorage;
-    }
-
-    public Map<SparePart, Integer> getProducts() {//нарушение инкапсуляции
-        Map<SparePart, Integer> copyProducts = new HashMap<>();
-        copyProducts.putAll(products);
-        return copyProducts;
     }
 
     public ProductStorage add(SparePart part, int count) {
@@ -45,6 +40,18 @@ public class ProductStorage {
         sorted.putAll(products);
         products = sorted;
         return this;
+    }
+
+    public ProductStorage filter(Filterable<SparePart> condition) {
+        Map<SparePart, Integer> filtered = new HashMap<>();
+        for (Map.Entry<SparePart, Integer> entry : products.entrySet()){
+            if (condition.verify(entry.getKey())){
+                filtered.put(entry.getKey(), entry.getValue());
+            }
+        }
+        ProductStorage filteredStorage = this;
+        filteredStorage.products.putAll(filtered);
+        return filteredStorage;
     }
 
     @Override

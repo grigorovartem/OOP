@@ -1,9 +1,7 @@
 package CourseProject.Runners;
 
-import CourseProject.Common.Utils;
 import CourseProject.Entity.Brand;
 import CourseProject.Entity.SparePart;
-import CourseProject.Filtration.Filtrator;
 import CourseProject.Filtration.MultiFiltrator;
 import CourseProject.Filtration.PartVerificator;
 import CourseProject.Service.ProductStorage;
@@ -27,10 +25,10 @@ public class Runner {
         System.out.println(productStorage.sort(StorageComparators.byName()).toString());
         System.out.println(productStorage.sort(StorageComparators.byName())
                                          .sort(StorageComparators.byPrice()).toString());
-        Utils.print(Filtrator.filter(productStorage.getProducts(), PartVerificator.nameStartsWith("A")));
-        Utils.print(Filtrator.filter(productStorage.getProducts(), PartVerificator.priceBetween(80., 100.)));
-        Utils.print(Filtrator.filter(productStorage.getProducts(), PartVerificator.nameContains("tor")));
-        Utils.print(Filtrator.filter(productStorage.getProducts(), MultiFiltrator.andFilter(
+        System.out.println(productStorage.filter(PartVerificator.nameStartsWith("A")));
+        System.out.println(productStorage.filter(PartVerificator.priceBetween(80., 100.)));
+        System.out.println(productStorage.filter(PartVerificator.nameContains("tor")));
+        System.out.println(productStorage.filter(MultiFiltrator.andFilter(
                 PartVerificator.nameStartsWith("A"), PartVerificator.priceBetween(80., 100.)
         )));
 

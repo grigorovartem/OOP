@@ -1,7 +1,5 @@
 package Lecture1.Home.Task4;
 
-import Lecture1.Home.Task4.Rectangle;
-
 import java.util.ArrayList;
 import java.util.List;
 

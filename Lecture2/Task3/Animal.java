@@ -13,6 +13,6 @@ public class Animal {
     }
 
     public void printName() {
-        System.out.println("Name is: " + name);
+        System.out.println("Propertie is: " + name);
     }
 }

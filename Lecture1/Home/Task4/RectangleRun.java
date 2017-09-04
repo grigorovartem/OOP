@@ -7,6 +7,9 @@ public class RectangleRun {
         Rectangle rectangle2 = new Rectangle(4.0, 5.0);
         Rectangle rectangle3 = new Rectangle(2.0, 4.0);
 
+        System.out.println(rectangle1);
+        System.out.println("width= " + rectangle1.getWidth());
+        System.out.println("height= " + rectangle1.getHeight());
         System.out.println(rectangle1.square());
         System.out.println(rectangle2.perimeter());
 

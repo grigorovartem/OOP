@@ -3,9 +3,14 @@ package Kursovoj;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Brand {
+public enum Brand {
 
-    private String name;
-    private List<Model> models = new ArrayList<>();
+    MERSEDES,
+    DAF,
+    VOLVO,
+    SCANIA,
+    MAN,
+    RENAULT,
+    IVECO
 
 }

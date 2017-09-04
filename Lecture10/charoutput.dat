@@ -1,0 +1,4 @@
+Film{name='Doctor Strange'	, year=2016	, actors=[Benedict Cumberbatch, Tilda Swinton, Mads Mikkelsen]	, genres=[ADVENTURE, FICTION]}
+Film{name='Le Transporteur'	, year=2002	, actors=[Jason Statham, Lín Lìhuì, Matthew Schulz]	, genres=[THRILLER]}
+Film{name='Constantine'	, year=2005	, actors=[Keanu Reeves, Rachel Weisz, Shia LaBeouf]	, genres=[DRAMA, THRILLER, HORROR]}
+Film{name='The Midnight Meat Train'	, year=2008	, actors=[Bradley Cooper, Leslie Bibb, Brooke Shields]	, genres=[HORROR]}

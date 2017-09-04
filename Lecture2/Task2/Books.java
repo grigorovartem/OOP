@@ -2,43 +2,41 @@ package Lecture2.Task2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Books {
 
     private List<Book> books = new ArrayList<>();
 
-    public void add(Book book){
+    public void add(Book book) {
         books.add(book);
     }
 
-    public List<Book> findAuthor(String author){
-        List<Book> authorSort = new ArrayList<>();
-        for (int i = 0; i < books.size(); i++) {
-            if(author.equals(books.get(i).getAuthor())){
-                authorSort.add(books.get(i));
-            }
-        }
-        return authorSort;
+    public List<Book> findAuthor(String author) {
+        return books
+                .stream()
+                .filter(
+                        (p) -> p.getAuthor().equals(author)
+                )
+                .collect(Collectors.toList());
     }
 
-    public List<Book> findPublshing(String publishing){
-        List<Book> publishingSort = new ArrayList<>();
-        for (int i = 0; i < books.size(); i++) {
-            if(publishing.equals(books.get(i).getPublishing())){
-                publishingSort.add(books.get(i));
-            }
-        }
-        return publishingSort;
+    public List<Book> findPublshing(String publishing) {
+        return books
+                .stream()
+                .filter(
+                        (p) -> p.getPublishing().equals(publishing)
+                )
+                .collect(Collectors.toList());
     }
 
-    public List<Book> findYear(int year){
-        List<Book> yearSort = new ArrayList<>();
-        for (int i = 0; i < books.size(); i++) {
-            if(year<(books.get(i).getYear())){
-                yearSort.add(books.get(i));
-            }
-        }
-        return yearSort;
+    public List<Book> findYear(int year) {
+        return books
+                .stream()
+                .filter(
+                        (p) -> p.getYear() > year
+                )
+                .collect(Collectors.toList());
     }
 
     public void printName(List<Book> books) {

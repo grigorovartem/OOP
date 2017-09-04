@@ -2,6 +2,7 @@ package CourseProject.PartsIO;
 
 import CourseProject.Entity.Brand;
 import CourseProject.Entity.SparePart;
+import CourseProject.Service.ProductStorage;
 
 import java.io.*;
 import java.util.HashMap;
@@ -10,27 +11,21 @@ import java.util.Map;
 
 public class PartsIOUtils {
 
-    public static Map<SparePart, Integer> readFromFile(String filename) {
-        Map<SparePart, Integer> storage = new HashMap<>();
+    public static ProductStorage readFromFile(String filename) throws IOException{
+        ProductStorage storage = ProductStorage.getInctance();
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             while (reader.readLine() != null) {
                 SparePart part = parsePart(reader.readLine());
                 Integer count = parseCount(reader.readLine());
-                storage.put(part, count);
+                storage.add(part, count);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return storage;
     }
 
-    public static void writeToFile(String filename, Map<SparePart, Integer> storage) {
+    public static void writeToFile(String filename, ProductStorage storage) throws IOException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
             writer.println(storage.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
